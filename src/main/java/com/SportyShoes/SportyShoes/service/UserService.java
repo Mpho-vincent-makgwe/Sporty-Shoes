@@ -24,4 +24,9 @@ public class UserService {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }
+
+	public Object findAllUsers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
