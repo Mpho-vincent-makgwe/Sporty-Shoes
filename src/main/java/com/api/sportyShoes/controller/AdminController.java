@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
 import com.api.sportyShoes.exceptionHandler.BusinessException;
 import com.api.sportyShoes.model.PurchaseReport;
 import com.api.sportyShoes.model.Shoe;
-import com.api.sportyShoes.service.SportyShoesService;
+import com.api.sportyShoes.service.ShoeService;
 
 @RestController
 public class AdminController {
 
     @Autowired
-    private SportyShoesService service;
+    private ShoeService service;
 
     private MultiValueMap<String, String> errorMap = new LinkedMultiValueMap<>();
 

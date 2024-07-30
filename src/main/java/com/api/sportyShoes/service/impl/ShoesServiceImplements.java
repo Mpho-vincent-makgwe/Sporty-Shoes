@@ -5,7 +5,7 @@ import com.api.sportyShoes.service.ShoeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 import java.util.Date;
 import java.util.List;
@@ -32,7 +32,7 @@ public class ShoesServiceImplements implements ShoeService {
     @Autowired
     private PurchaseReportRepository prRepo;
 
-    @PostConstruct
+    @jakarta.annotation.PostConstruct
     public void init() {
         Shoe s1 = new Shoe(1,"Shoe Name 1","Basketball",1000.24);
         Shoe s2 = new Shoe(2,"Shoe Name 2","Cricket",1100.24);
