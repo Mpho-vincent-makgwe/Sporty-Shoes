@@ -7,11 +7,6 @@ import com.api.sportyShoes.exceptionHandler.BusinessException;
 import com.api.sportyShoes.model.PurchaseReport;
 import com.api.sportyShoes.model.Shoe;
 
-import com.api.sportyShoes.model.Shoe;
-
-import java.util.Date;
-import java.util.List;
-
 public interface ShoeService {
 
     public Shoe createShoe(Shoe shoe) throws BusinessException;

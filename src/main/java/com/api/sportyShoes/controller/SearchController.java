@@ -27,7 +27,7 @@ public class SearchController {
 
     @GetMapping("/admin/shoe/all")
     public ResponseEntity<List<Shoe>> getAllShoes(){
-        return new ResponseEntity<List<Shoe>>(service.getAllShoes(), HttpStatus.OK);
+        return new ResponseEntity<>(service.getAllShoes(), HttpStatus.OK);
     }
 
 
@@ -38,7 +38,7 @@ public class SearchController {
      */
     @GetMapping("/admin/purchaseReport/category/{category}")
     public ResponseEntity<List<PurchaseReport>> getAllPurchaseReportsByCategory(@PathVariable String category){
-        return new ResponseEntity<List<PurchaseReport>>(service.getAllPurchaseReportsByCategory(category), HttpStatus.OK);
+        return new ResponseEntity<>(service.getAllPurchaseReportsByCategory(category), HttpStatus.OK);
     }
 
     /**
@@ -49,7 +49,7 @@ public class SearchController {
     @GetMapping("/admin/purchaseReport/date/{dateInMs}")
     public ResponseEntity<List<PurchaseReport>> getAllPurchaseReportsByDop(@PathVariable Long dateInMs){
         Date dop = new Date(dateInMs);
-        return new ResponseEntity<List<PurchaseReport>>(service.getAllPurchaseReportsByDOP(dop), HttpStatus.OK);
+        return new ResponseEntity<>(service.getAllPurchaseReportsByDOP(dop), HttpStatus.OK);
     }
 
     /**
@@ -58,6 +58,6 @@ public class SearchController {
      */
     @GetMapping("/admin/purchaseReport/all")
     public ResponseEntity<List<PurchaseReport>> getAllPurchaseReport(){
-        return new ResponseEntity<List<PurchaseReport>>(service.getAllPurchaseReports(), HttpStatus.OK);
+        return new ResponseEntity<>(service.getAllPurchaseReports(), HttpStatus.OK);
     }
 }

@@ -1,10 +1,9 @@
 package com.api.sportyShoes.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Entity;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -55,6 +54,13 @@ public class Shoe {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-
-
+	@Override
+    public String toString() {
+        return "Shoe{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

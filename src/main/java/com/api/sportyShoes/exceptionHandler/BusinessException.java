@@ -3,7 +3,7 @@ package com.api.sportyShoes.exceptionHandler;
 public class BusinessException extends Exception{
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1008128726286682480L;
 
