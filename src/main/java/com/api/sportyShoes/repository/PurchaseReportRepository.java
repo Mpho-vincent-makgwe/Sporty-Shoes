@@ -10,7 +10,7 @@ import com.api.sportyShoes.model.PurchaseReport;
 
 @Repository
 public interface PurchaseReportRepository extends JpaRepository<PurchaseReport, Integer>{
-    public List<PurchaseReport> findByDop(Date dop);
+    public List<PurchaseReport> findByDop(Date purchaseDate);
     public List<PurchaseReport> findByCategory(String category);
 
 }

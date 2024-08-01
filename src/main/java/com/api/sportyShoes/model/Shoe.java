@@ -17,11 +17,11 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Shoe {
-	public Shoe(int id, String name, String category, double price) {
+	public Shoe(int id, String name, String brand, double price) {
         super();
         this.id = id;
         this.name = name;
-        this.category = category;
+        this.brand = brand;
         this.price = price;
     }
 
@@ -29,7 +29,7 @@ public class Shoe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String category;
+    private String brand;
     private double price;
 	
 	public void setId(int id) {
@@ -41,11 +41,11 @@ public class Shoe {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getCategory() {
-		return category;
+	public String getBrand() {
+		return brand;
 	}
-	public void setCategory(String category) {
-		this.category = category;
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 	public double getPrice() {
 		return price;
@@ -53,16 +53,17 @@ public class Shoe {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	public Integer getId() {
+		return id;
+	}
 	@Override
     public String toString() {
         return "Shoe{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", category='" + category + '\'' +
+                ", brand='" + brand + '\'' +
                 ", price=" + price +
                 '}';
     }
-	public Integer getId() {
-		return id;
-	}
 }

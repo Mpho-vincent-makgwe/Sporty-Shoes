@@ -90,7 +90,7 @@ public class HomeController {
     }
 
     @PostMapping("/shoes/delete")
-    public ModelAndView deleteShoeById(@RequestParam int id, Model model) {
+    public String deleteShoeById(@RequestParam int id, Model model) {
         try {
             shoesRepo.deleteById(id);
             model.addAttribute("successMessage", "Successfully deleted shoe with id: " + id);
@@ -99,7 +99,7 @@ public class HomeController {
         } catch (NoSuchElementException e) {
             model.addAttribute("errorMessage", "Shoe does not exist with id: " + id);
         }
-        return new ModelAndView("delete_shoe");
+        return "redirect:/shoes"; // Redirect to shoes page
     }
 
     @GetMapping("/purchaseReports")
@@ -109,7 +109,6 @@ public class HomeController {
         mav.addObject("purchaseReports", purchaseReports);
         return mav;
     }
-
 
     @GetMapping("/purchaseReports/new")
     public ModelAndView createPurchaseReportForm() {
@@ -163,7 +162,7 @@ public class HomeController {
     }
 
     @PostMapping("/purchaseReports/delete")
-    public ModelAndView deletePurchaseReportById(@RequestParam int id, Model model) {
+    public String deletePurchaseReportById(@RequestParam int id, Model model) {
         try {
             prRepo.deleteById(id);
             model.addAttribute("successMessage", "Successfully deleted purchase report with id: " + id);
@@ -172,6 +171,7 @@ public class HomeController {
         } catch (NoSuchElementException e) {
             model.addAttribute("errorMessage", "Purchase Report does not exist with id: " + id);
         }
-        return new ModelAndView("delete_purchase_report");
+        return "redirect:/purchaseReports"; // Redirect to purchaseReports page
     }
 }
+

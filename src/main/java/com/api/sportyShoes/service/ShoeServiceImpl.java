@@ -129,7 +129,7 @@ public class ShoeServiceImpl implements ShoeService {
     }
 
     @Override
-    public List<PurchaseReport> getAllPurchaseReportsByDop(Date dop) {
-        return prRepo.findByDop(dop);
+    public List<PurchaseReport> getAllPurchaseReportsByDop(Date purchaseDate) {
+        return prRepo.findByDop(purchaseDate);
     }
 }

@@ -24,13 +24,12 @@ public class PurchaseReport {
 
 
 
-    public PurchaseReport(int id, String purchasedBy, String category, Date dop, String orderList) {
+    public PurchaseReport(int id, String purchasedBy, String category, Date purchaseDate) {
         super();
         this.id = id;
         this.purchasedBy = purchasedBy;
         this.category = category;
-        this.dop = dop;
-        this.orderList = orderList;
+        this.purchaseDate = purchaseDate;
     }
 
     @Id
@@ -40,7 +39,7 @@ public class PurchaseReport {
     private String category;
 
     @Temporal(TemporalType.DATE)
-    private Date dop;
+    private Date purchaseDate;
 
     /**
      * This can be used for storing orderlist as <Qty, Shoe>
@@ -51,8 +50,6 @@ public class PurchaseReport {
 //	Map<Integer,Shoe> orderList = new HashMap<Integer,Shoe>();
 //								OR
 //	Map<Integer,Integer> orderList = new HashMap<Integer,Integer>();
-
-    String orderList;
 
 	public int getId() {
 		return id;
@@ -79,19 +76,12 @@ public class PurchaseReport {
 	}
 
 	public Date getDop() {
-		return dop;
+		return purchaseDate;
 	}
 
-	public void setDop(Date dop) {
-		this.dop = dop;
+	public void setDop(Date purchaseDate) {
+		this.purchaseDate = purchaseDate;
 	}
 
-	public String getOrderList() {
-		return orderList;
-	}
-
-	public void setOrderList(String orderList) {
-		this.orderList = orderList;
-	}
 
 }

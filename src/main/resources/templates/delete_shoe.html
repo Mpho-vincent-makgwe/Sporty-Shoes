@@ -6,14 +6,14 @@
     <title>Delete Shoe</title>
 </head>
 <body>
-    <h1>Are you sure you want to delete this shoe?</h1>
+    <h1>Delete Shoe</h1>
     <form action="/shoes/delete" method="post">
-        <input type="hidden" id="id" name="id" th:value="${shoe.id}">
+        <input type="hidden" name="id" th:value="${shoe.id}">
+        <p>Are you sure you want to delete the shoe with ID: <span th:text="${shoe.id}"></span>?</p>
         <p>Name: <span th:text="${shoe.name}"></span></p>
-        <p>Category: <span th:text="${shoe.category}"></span></p>
+        <p>Brand: <span th:text="${shoe.brand}"></span></p>
         <p>Price: <span th:text="${shoe.price}"></span></p>
-        <button type="submit">Yes, Delete</button>
+        <button type="submit">Delete</button>
     </form>
-    <a href="/shoes">Cancel</a>
 </body>
 </html>
