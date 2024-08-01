@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Purchase Report</title>
+</head>
+<body>
+    <h1>Are you sure you want to delete this purchase report?</h1>
+    <form action="/purchaseReports/delete" method="post">
+        <input type="hidden" id="id" name="id" th:value="${purchaseReport.id}">
+        <p>Category: <span th:text="${purchaseReport.category}"></span></p>
+
+        <button type="submit">Yes, Delete</button>
+    </form>
+    <a href="/purchaseReports">Cancel</a>
+</body>
+</html>

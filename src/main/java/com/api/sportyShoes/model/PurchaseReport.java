@@ -4,6 +4,7 @@ import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -14,9 +15,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table
-@Setter
+@Table(name = "purchase_report")
 @Getter
+@Setter
 @NoArgsConstructor
 @ToString
 public class PurchaseReport {
@@ -33,7 +34,7 @@ public class PurchaseReport {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String purchasedBy; // This can be extended to utilize one to one relation with User Table [Future Implemetations]
     private String category;

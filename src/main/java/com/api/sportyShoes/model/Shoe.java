@@ -2,6 +2,7 @@ package com.api.sportyShoes.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -10,13 +11,13 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table
+@Table(name = "shoe")
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
 public class Shoe {
-    public Shoe(int id, String name, String category, double price) {
+	public Shoe(int id, String name, String category, double price) {
         super();
         this.id = id;
         this.name = name;
@@ -25,14 +26,12 @@ public class Shoe {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String category;
     private double price;
-	public int getId() {
-		return id;
-	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -63,4 +62,7 @@ public class Shoe {
                 ", price=" + price +
                 '}';
     }
+	public Integer getId() {
+		return id;
+	}
 }

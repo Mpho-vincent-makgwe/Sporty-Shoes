@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Purchase Reports</title>
+</head>
+<body>
+    <h1>All Purchase Reports</h1>
+    <a href="/purchaseReports/new">Add New Purchase Report</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="pr : ${purchaseReports}">
+                <td th:text="${pr.id}"></td>
+                <td th:text="${pr.category}"></td>
+                <td th:text="${#dates.format(pr.dop, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td>
+                    <a th:href="@{'/purchaseReports/edit/' + ${pr.id}}">Edit</a>
+                    <a th:href="@{'/purchaseReports/delete/' + ${pr.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

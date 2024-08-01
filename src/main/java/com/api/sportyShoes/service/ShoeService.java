@@ -21,5 +21,5 @@ public interface ShoeService {
     public void deletePurchaseReportById(int id) throws BusinessException;
     public List<PurchaseReport> getAllPurchaseReports();
     public List<PurchaseReport> getAllPurchaseReportsByCategory(String category);
-    public List<PurchaseReport> getAllPurchaseReportsByDOP(Date dop);
+    public List<PurchaseReport> getAllPurchaseReportsByDop(Date dop);
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Purchase Report</title>
+</head>
+<body>
+    <h1>Update Purchase Report</h1>
+    <form action="/purchaseReports/update" method="post">
+        <input type="hidden" id="id" name="id" th:value="${purchaseReport.id}">
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" th:value="${purchaseReport.category}" required><br>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" th:value="${purchaseReport.date}" required><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.api.sportyShoes.model.PurchaseReport;
 import com.api.sportyShoes.model.Shoe;
 import com.api.sportyShoes.service.ShoeService;
@@ -48,8 +49,8 @@ public class SearchController {
      */
     @GetMapping("/admin/purchaseReport/date/{dateInMs}")
     public ResponseEntity<List<PurchaseReport>> getAllPurchaseReportsByDop(@PathVariable Long dateInMs){
-        Date dop = new Date(dateInMs);
-        return new ResponseEntity<>(service.getAllPurchaseReportsByDOP(dop), HttpStatus.OK);
+        Date date = new Date(dateInMs);
+        return new ResponseEntity<>(service.getAllPurchaseReportsByDate(date), HttpStatus.OK);
     }
 
     /**

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Shoes</title>
+</head>
+<body>
+    <h1>All Shoes</h1>
+    <a href="/shoes/new">Add New Shoe</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="shoe : ${shoes}">
+                <td th:text="${shoe.id}"></td>
+                <td th:text="${shoe.name}"></td>
+                <td th:text="${shoe.category}"></td>
+                <td th:text="${shoe.price}"></td>
+                <td>
+                    <a th:href="@{'/shoes/edit/' + ${shoe.id}}">Edit</a>
+                    <a th:href="@{'/shoes/delete/' + ${shoe.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Shoe</title>
+</head>
+<body>
+    <h1>Are you sure you want to delete this shoe?</h1>
+    <form action="/shoes/delete" method="post">
+        <input type="hidden" id="id" name="id" th:value="${shoe.id}">
+        <p>Name: <span th:text="${shoe.name}"></span></p>
+        <p>Category: <span th:text="${shoe.category}"></span></p>
+        <p>Price: <span th:text="${shoe.price}"></span></p>
+        <button type="submit">Yes, Delete</button>
+    </form>
+    <a href="/shoes">Cancel</a>
+</body>
+</html>
