@@ -6,13 +6,26 @@
     <title>Update Purchase Report</title>
 </head>
 <body>
+
     <h1>Update Purchase Report</h1>
-    <form action="/purchaseReports/update" method="post">
+    <form action="/purchaseReports/update" th:action="@{/updatePurchaseReport}" th:object="${purchaseReport}" method="post">
+        <div>
+            <label>Shoe ID:</label>
+            <span th:text="${purchaseReport.shoe != null ? purchaseReport.shoe.id : 'No Shoe Assigned'}"></span>
+        </div>
         <input type="hidden" id="id" name="id" th:value="${purchaseReport.id}">
+        <label for="shoeId">Shoe ID:</label>
+        <input type="number" id="shoeId" name="shoeId" th:value="${purchaseReport.shoe.id}" required><br> <!-- Updated for Shoe reference -->
+        <label for="purchaseDate">Date:</label>
+        <input type="datetime-local" id="purchaseDate" name="purchaseDate" th:value="${#dates.format(purchaseReport.purchaseDate, 'yyyy-MM-dd\'T\'HH:mm:ss')}" required><br>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" th:value="${purchaseReport.quantity}" required><br>
+        <label for="totalPrice">Total Price:</label>
+        <input type="number" step="0.01" id="totalPrice" name="totalPrice" th:value="${purchaseReport.totalPrice}" required><br>
         <label for="category">Category:</label>
         <input type="text" id="category" name="category" th:value="${purchaseReport.category}" required><br>
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" th:value="${purchaseReport.date}" required><br>
+        <label for="purchasedBy">Purchased By:</label>
+        <input type="text" id="purchasedBy" name="purchasedBy" th:value="${purchaseReport.purchasedBy}" required><br>
         <button type="submit">Submit</button>
     </form>
 </body>

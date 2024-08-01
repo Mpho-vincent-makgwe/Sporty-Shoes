@@ -10,7 +10,7 @@
     <form action="/shoes/delete" method="post">
         <input type="hidden" id="id" name="id" th:value="${shoe.id}">
         <p>Name: <span th:text="${shoe.name}"></span></p>
-        <p>Category: <span th:text="${shoe.category}"></span></p>
+        <p>Brand: <span th:text="${shoe.brand}"></span></p>
         <p>Price: <span th:text="${shoe.price}"></span></p>
         <button type="submit">Yes, Delete</button>
     </form>

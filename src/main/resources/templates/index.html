@@ -7,7 +7,41 @@
 </head>
 <body>
     <h1>Welcome to the Sporty Shoes API!</h1>
+    <h2>Search Shoes</h2>
+    <form action="/shoes/search" method="get">
+        <label for="shoeName">Shoe Name:</label>
+        <input type="text" id="shoeName" name="shoeName"><br>
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Search Purchase Reports</h2>
+    <form action="/purchaseReports/search" method="get">
+        <label for="purchasedBy">Purchased By:</label>
+        <input type="text" id="purchasedBy" name="purchasedBy"><br>
+        <button type="submit">Search</button>
+    </form>
     <a href="/shoes">View all shoes</a><br>
     <a href="/purchaseReports">View all purchase reports</a><br>
+    
+    <script>
+        // Function to check health status
+        function checkHealth() {
+            fetch('/health')
+                .then(response => response.text())
+                .then(status => {
+                    if (status === 'UP') {
+                        alert('Connected to MySQL successfully!');
+                    } else {
+                        alert('Failed to connect to MySQL.');
+                    }
+                })
+                .catch(error => {
+                    alert('Error connecting to MySQL: ' + error);
+                });
+        }
+
+        // Call the health check function when the page loads
+        window.onload = checkHealth;
+    </script>
 </body>
 </html>

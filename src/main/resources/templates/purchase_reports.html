@@ -21,7 +21,7 @@
             <tr th:each="pr : ${purchaseReports}">
                 <td th:text="${pr.id}"></td>
                 <td th:text="${pr.category}"></td>
-                <td th:text="${#dates.format(pr.dop, 'yyyy-MM-dd HH:mm:ss')}"></td>
+                <td th:text="${#dates.format(pr.purchaseDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
                 <td>
                     <a th:href="@{'/purchaseReports/edit/' + ${pr.id}}">Edit</a>
                     <a th:href="@{'/purchaseReports/delete/' + ${pr.id}}">Delete</a>
