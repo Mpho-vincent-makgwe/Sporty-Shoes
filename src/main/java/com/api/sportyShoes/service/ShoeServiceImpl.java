@@ -3,11 +3,9 @@ package com.api.sportyShoes.service;
 import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-
 import com.api.sportyShoes.exceptionHandler.BusinessException;
 import com.api.sportyShoes.model.PurchaseReport;
 import com.api.sportyShoes.model.Shoe;
@@ -28,7 +26,7 @@ public class ShoeServiceImpl implements ShoeService {
         int id = shoe.getId();
         Shoe oldShoe = null;
         try {
-            oldShoe = shoesRepo.findById(id).get();
+            oldShoe = shoesRepo.findById(id).orElse(null);
         } catch (NoSuchElementException e) {
             // Ignore if not found
         }
@@ -40,16 +38,11 @@ public class ShoeServiceImpl implements ShoeService {
 
     @Override
     public Shoe getShoeById(int id) throws BusinessException {
-        Shoe shoe = null;
-        try {
-            if (id <= 0) {
-                throw new BusinessException("Shoe Id can not be negative or zero");
-            }
-            shoe = shoesRepo.findById(id).get();
-        } catch (NoSuchElementException e) {
-            throw new BusinessException("Shoe not found with Id: " + id);
+        if (id <= 0) {
+            throw new BusinessException("Shoe Id can not be negative or zero");
         }
-        return shoe;
+        return shoesRepo.findById(id)
+                .orElseThrow(() -> new BusinessException("Shoe not found with Id: " + id));
     }
 
     @Override
@@ -78,7 +71,7 @@ public class ShoeServiceImpl implements ShoeService {
         int id = pr.getId();
         PurchaseReport oldPr = null;
         try {
-            oldPr = prRepo.findById(id).get();
+            oldPr = prRepo.findById(id).orElse(null);
         } catch (NoSuchElementException e) {
             // Ignore if not found
         }
@@ -90,16 +83,11 @@ public class ShoeServiceImpl implements ShoeService {
 
     @Override
     public PurchaseReport getPurchaseReportById(int id) throws BusinessException {
-        PurchaseReport pr = null;
-        try {
-            if (id <= 0) {
-                throw new BusinessException("Purchase Report Id can not be negative or zero");
-            }
-            pr = prRepo.findById(id).get();
-        } catch (NoSuchElementException e) {
-            throw new BusinessException("Purchase Report not found with Id: " + id);
+        if (id <= 0) {
+            throw new BusinessException("Purchase Report Id can not be negative or zero");
         }
-        return pr;
+        return prRepo.findById(id)
+                .orElseThrow(() -> new BusinessException("Purchase Report not found with Id: " + id));
     }
 
     @Override
@@ -130,6 +118,16 @@ public class ShoeServiceImpl implements ShoeService {
 
     @Override
     public List<PurchaseReport> getAllPurchaseReportsByDop(Date purchaseDate) {
-        return prRepo.findByDop(purchaseDate);
+        return prRepo.findByPurchaseDate(purchaseDate);
+    }
+
+    @Override
+    public List<Shoe> searchShoesByKeyword(String keyword) {
+        return shoesRepo.findByNameContainingOrBrandContainingOrCategoryContaining(keyword, keyword, keyword);
+    }
+
+    @Override
+    public List<PurchaseReport> searchPurchaseReportsByKeyword(String keyword) {
+        return prRepo.findByCategoryContainingOrPurchasedByContaining(keyword, keyword);
     }
 }
